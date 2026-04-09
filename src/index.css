@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* iOS Light Mode (Oq rejim) Ranglari */
+    --bg-system: #f2f2f7;
+    --bg-card: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #8e8e93;
+    --separator: rgba(60, 60, 67, 0.29);
+    --search-bg: rgba(118, 118, 128, 0.12);
+    --blue-ios: #007aff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* iOS Dark Mode (Qora rejim) Ranglari */
+      --bg-system: #000000;
+      --bg-card: #1c1c1e;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(235, 235, 245, 0.6);
+      --separator: rgba(84, 84, 88, 0.65);
+      --search-bg: rgba(118, 118, 128, 0.24);
+      --blue-ios: #0a84ff;
+    }
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Butun ekranni qotiradi, skrollni main ichida qilamiz */
+  }
+
+  body {
+    background-color: var(--bg-system);
+    color: var(--text-primary);
+    font-family:
+      -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+
+    /* Ilova Fizikasi */
+    overscroll-behavior-y: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  /* Apple Glass (Xira oyna) effekti */
+  .ios-glass {
+    background-color: rgba(var(--bg-system), 0.75);
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    border-bottom: 0.5px solid var(--separator);
+  }
+
+  .ios-bottom-glass {
+    background-color: rgba(var(--bg-card), 0.85);
+    backdrop-filter: blur(25px) saturate(200%);
+    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    border-top: 0.5px solid var(--separator);
+  }
+
+  /* Safe Area (Tirqish va pastki chiziq) uchun bo'shliqlar */
+  .safe-pt {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Scrollni berkitish */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* iOS asil Spinner Animatsiyasi */
+.ios-spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  animation: ios-spin 1s steps(12, end) infinite;
+}
+.ios-spinner line {
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+@keyframes ios-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* iOS Loader Animatsiyasi */
+.ios-spinner {
+  animation: ios-spin 1s steps(12, end) infinite;
+}
+
+@keyframes ios-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ==========================================
+   🍏 FASTTV: NATIVE iOS APP STYLES
+   ========================================== */
+
+/* 1. iOS INERSION SKROLL (Silliq sirpanish) */
+* {
+  -webkit-overflow-scrolling: touch !important;
+  /* Barmoq bilan tortganda xuddi muz ustida sirpangandek silliq ketishini ta'minlaydi */
+}
+
+/* 2. MATNNI BELGILASHNI O'CHIRISH (Anti-Copy) */
+/* Haqiqiy ilovalarda ekranni tortganda matnlar ko-k bo'lib belgilanib qolmaydi */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* iOS-da uzoq bosib turganda chiqadigan menyuni o'chiradi */
+  -webkit-tap-highlight-color: transparent; /* Tugmalarni bosganda orqasidagi qora/ko'k fonni yo'q qiladi */
+}
+
+/* Lekin Input (Qidiruv, Login) maydonlarida yozish va belgilash ishlashi shart! */
+input,
+textarea {
+  -webkit-user-select: auto !important;
+  user-select: auto !important;
+}
+
+/* 3. SKROLLBARNI YASHIRISH (Hide Scrollbar) */
+/* Ekranda qalin skroll chizig'i chiqib turishi uni "Vebsayt" ekanligini sotib qo'yadi. Uni yashiramiz! */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE va Edge uchun */
+  scrollbar-width: none; /* Firefox uchun */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, iOS Safari uchun */
+}
+
+/* 4. TUGMALAR EFFEKTI (Active state) */
+/* Bosilganda salgina xiralashish/kichrayish (iOS standart) */
+button {
+  touch-action: manipulation; /* Tezkor bosish (300ms kechikishni yo'qotadi) */
+}

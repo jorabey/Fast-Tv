@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="uz" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+
+    <title>FastTV</title>
+    <meta
+      name="description"
+      content="FastTV orqali dunyo va o'zbek telekanallarini jonli efirda, yuqori sifatda (HD) va bepul tomosha qiling. Barcha kanallar bitta ilovada!"
+    />
+    <meta
+      name="keywords"
+      content="FastTV, tv online, jonli efir, o'zbek kanallari, tv bepul, telekanallar, kino, sport tv, yangiliklar, pwa iptv"
+    />
+    <meta name="author" content="FastTV Team" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://fasttv.uz/" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="FastTV" />
+    <meta name="application-name" content="FastTV" />
+
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo-16x16.png" />
+
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#F2F2F7"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#000000"
+    />
+    <meta name="msapplication-navbutton-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FastTV" />
+    <meta property="og:title" content="FastTV - Jonli telekanallar" />
+    <meta
+      property="og:description"
+      content="Eng sara telekanallarni yuqori sifatda, qotmasdan tomosha qiling. Ilovani bepul o'rnating!"
+    />
+    <meta property="og:image" content="https://fasttv.uz/og-image.jpg" />
+    <meta property="og:url" content="https://fasttv.uz/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FastTV - Jonli telekanallar" />
+    <meta
+      name="twitter:description"
+      content="Eng sara telekanallarni yuqori sifatda tomosha qiling."
+    />
+    <meta name="twitter:image" content="https://fasttv.uz/og-image.jpg" />
+
+    <link
+      rel="preconnect"
+      href="https://vzyoxwqydcxbpuf.supabase.co"
+      crossorigin
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FastTV",
+        "operatingSystem": "Web, iOS, Android",
+        "applicationCategory": "EntertainmentApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "UZS"
+        },
+        "description": "FastTV orqali dunyo va o'zbek telekanallarini jonli efirda HD sifatda tomosha qiling."
+      }
+    </script>
+
+    <script>
+      // Barmoq bilan kattalashtirishni o'ldiradi
+      document.addEventListener("gesturestart", function (e) {
+        e.preventDefault();
+      });
+      // Ikki marta bosganda zoom bo'lishni o'ldiradi
+      document.addEventListener(
+        "dblclick",
+        function (e) {
+          e.preventDefault();
+        },
+        { passive: false },
+      );
+      // Safari "Rezina effekti" (Overscroll bounce) ni qisman nazorat qiladi
+      document.addEventListener(
+        "touchmove",
+        function (e) {
+          if (e.scale !== 1) {
+            e.preventDefault();
+          }
+        },
+        { passive: false },
+      );
+    </script>
+  </head>
+
+  <body>
+    <noscript
+      >FastTV ishlashi uchun JavaScript yoqilgan bo'lishi shart.</noscript
+    >
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      // 🛠 SERVICE WORKER RO'YXATDAN O'TKAZISH
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          // Bu yerda biz o'zimiz yaratadigan 'sw.js' faylini ko'rsatamiz
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((reg) => console.log("FastTV Engine: Online (Custom SW)"))
+            .catch((err) =>
+              console.log("SW yuklanmadi, lekin ilova ishlayveradi."),
+            );
+        });
+      }
+    </script>
+  </body>
+</html>
