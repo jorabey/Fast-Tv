@@ -9,6 +9,8 @@ export default defineConfig({
       registerType: "autoUpdate", // Yangilanish bo'lsa avtomat tatbiq qiladi
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"], // Hamma narsani keshlaydi
+        // MANA SHU QATOR XATONI TO'G'RILAYDI (15 MB gacha ruxsat):
+        maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
         navigateFallback: "/offline.html", // Internet uzilsa darhol bunga o'tadi
         runtimeCaching: [
           {
