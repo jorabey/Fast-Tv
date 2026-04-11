@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   // O'z domeningizni shu yerga yozing
-  const DOMAIN = "https://fasttv.uz";
+  const DOMAIN = "https://fasttv.vercel.app";
 
   try {
     // Bazadan faqat onlayn bo'lgan kanallar va davlatlarni tortib olamiz
