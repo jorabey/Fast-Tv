@@ -6,20 +6,23 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate", // Yangilanish bo'lsa avtomat tatbiq qiladi
+      registerType: "autoUpdate",
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,svg}"], // Hamma narsani keshlaydi
-        // MANA SHU QATOR XATONI TO'G'RILAYDI (15 MB gacha ruxsat):
+        globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
         maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
-        navigateFallback: "/offline.html", // Internet uzilsa darhol bunga o'tadi
+        navigateFallback: "/offline.html",
+        
+        // MANA SHU QATOR QO'SHILDI: PWA bu yo'llarga aralashmaydi!
+        navigateFallbackDenylist: [/^\/sitemap\.xml$/, /^\/api\//], 
+
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === "image",
-            handler: "CacheFirst", // Rasmlarni keshdan oladi (Tezlik!)
+            handler: "CacheFirst",
           },
           {
             urlPattern: /^https:\/\/vzyoxwqydcxbpuf\.supabase\.co\/.*/i,
-            handler: "NetworkFirst", // Supabase ma'lumotlarini tarmoqdan oladi, yo'qsa keshdan
+            handler: "NetworkFirst",
           },
         ],
       },
