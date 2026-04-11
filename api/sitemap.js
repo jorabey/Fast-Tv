@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+const { createClient } = require("@supabase/supabase-js");
 
 export default async function handler(req, res) {
   // Supabase'ga ulanish (Env fayllaringizdan o'zi oladi)
