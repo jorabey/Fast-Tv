@@ -10,9 +10,11 @@ export default defineConfig({
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
         maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
-        navigateFallback: "/offline.html",
         
-        // MANA SHU QATOR QO'SHILDI: PWA bu yo'llarga aralashmaydi!
+        // 🌟 ASOSIY O'ZGARISH: Har qanday yangi linkka kirilganda index.html ochilishi shart!
+        navigateFallback: "/index.html",
+        
+        // Sitemap va API larga aralashmaydi
         navigateFallbackDenylist: [/^\/sitemap\.xml$/, /^\/api\//], 
 
         runtimeCaching: [
