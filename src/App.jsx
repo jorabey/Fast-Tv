@@ -222,7 +222,7 @@ export default function App() {
 
           {/* 📺 KONTENT MAYDONI: Barcha kontent shu yerda yotadi */}
           <div className="flex-1 flex flex-col h-full relative overflow-hidden bg-[var(--bg-system)]">
-            {/* 🍎 MOBILE iOS HEADER (Katta ekranda yashirinadi) */}
+            {/* 🍎 MOBILE iOS HEADER (Ixcham va zamonaviy holatga keltirildi) */}
             <Routes>
               <Route path="/admin/*" element={null} />
               <Route path="/country/*" element={null} />
@@ -231,7 +231,7 @@ export default function App() {
                 path="*"
                 element={
                   <header
-                    className="md:hidden w-full z-[8000] shrink-0 pt-[max(env(safe-area-inset-top),16px)] relative"
+                    className="md:hidden w-full z-[8000] shrink-0 pt-[env(safe-area-inset-top,6px)] pb-1 relative"
                     style={{
                       backgroundColor: "rgba(var(--bg-system), 0.85)",
                       backdropFilter: "blur(20px)",
@@ -239,8 +239,8 @@ export default function App() {
                       borderBottom: "0.5px solid var(--separator)",
                     }}
                   >
-                    <div className="h-[44px] flex items-center justify-center">
-                      <span className="font-bold text-[18px] tracking-tight">
+                    <div className="h-[36px] flex items-center justify-center">
+                      <span className="font-semibold text-[16px] tracking-wide text-[var(--text-primary)]">
                         FastTV
                       </span>
                     </div>
