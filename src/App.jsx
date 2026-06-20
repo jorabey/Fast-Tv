@@ -102,9 +102,7 @@ const DesktopSidebar = () => {
         <div className="w-10 h-10 rounded-xl bg-[var(--blue-ios)] flex items-center justify-center text-white shadow-md">
           <Tv size={24} strokeWidth={2.5} />
         </div>
-        <span className="font-bold text-[24px] tracking-tight text-[var(--text-primary)]">
-          FastTV
-        </span>
+        
       </div>
 
       {/* Navigatsiya tugmalari */}
