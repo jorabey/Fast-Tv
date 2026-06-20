@@ -239,9 +239,6 @@ export default function App() {
                       borderBottom: "0.5px solid var(--separator)",
                     }}
                   >
-                    <div className="h-[36px] flex items-center justify-center">
-                      
-                    </div>
                   </header>
                 }
               />
