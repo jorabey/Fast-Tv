@@ -240,9 +240,7 @@ export default function App() {
                     }}
                   >
                     <div className="h-[36px] flex items-center justify-center">
-                      <span className="font-semibold text-[16px] tracking-wide text-[var(--text-primary)]">
-                        FastTV
-                      </span>
+                      
                     </div>
                   </header>
                 }
